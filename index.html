@@ -13,22 +13,42 @@
         <input type="text" id="inputText" placeholder="Digite um texto">
         <button onclick="codificar()">Codificar</button>
         <p id="outputText"></p>
+
+        <h2>Decodificador</h2>
+        <input type="text" id="encodedText" placeholder="Digite o texto codificado">
+        <button onclick="decodificar()">Decodificar</button>
+        <p id="decodedText"></p>
+        
+    <script>
+        function codificar() {
+            var input = document.getElementById("inputText").value;
+            var output = "";
     
-        <script>
-            function codificar() {
-                var input = document.getElementById("inputText").value;
-                var output = "";
+            for (var i = 0; i < input.length; i++) {
+                var charCode = input.charCodeAt(i);
+                var encodedCharCode = charCode + 1; // Modifica o código do caractere (neste caso, adiciona 1)
     
-                for (var i = 0; i < input.length; i++) {
-                    var charCode = input.charCodeAt(i);
-                    var encodedCharCode = charCode + 1; // Modifica o código do caractere (neste caso, adiciona 1)
-    
-                    var encodedChar = String.fromCharCode(encodedCharCode);
-                    output += encodedChar;
+                var encodedChar = String.fromCharCode(encodedCharCode);
+                output += encodedChar;
                 }
     
                 document.getElementById("outputText").textContent = output;
+        }
+
+        function decodificar() {
+            var encodedInput = document.getElementById("encodedText").value;
+            var decodedOutput = "";
+
+            for (var i = 0; i < encodedInput.length; i++) {
+                var encodedCharCode = encodedInput.charCodeAt(i);
+                var charCode = encodedCharCode - 1; // Inverte a modificação feita na codificação
+
+                var decodedChar = String.fromCharCode(charCode);
+                decodedOutput += decodedChar;
             }
+
+            document.getElementById("decodedText").textContent = decodedOutput;
+        }
         </script>
     </div>
 </body>
