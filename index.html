@@ -6,8 +6,30 @@
     <title>Codificador</title>
 </head>
 <body>
-    <h1>Bem-vindo ao Codificador!</h1>
+   <h1>Bem-vindo ao Codificador!</h1>
     <p>Aqui você pode codificar e decodificar mensagens.</p>
-    <!-- Adicione o restante do seu conteúdo HTML aqui -->
+    <div>
+        <h2>Codificador</h2>
+        <input type="text" id="inputText" placeholder="Digite um texto">
+        <button onclick="codificar()">Codificar</button>
+        <p id="outputText"></p>
+    
+        <script>
+            function codificar() {
+                var input = document.getElementById("inputText").value;
+                var output = "";
+    
+                for (var i = 0; i < input.length; i++) {
+                    var charCode = input.charCodeAt(i);
+                    var encodedCharCode = charCode + 1; // Modifica o código do caractere (neste caso, adiciona 1)
+    
+                    var encodedChar = String.fromCharCode(encodedCharCode);
+                    output += encodedChar;
+                }
+    
+                document.getElementById("outputText").textContent = output;
+            }
+        </script>
+    </div>
 </body>
 </html>
